@@ -1,0 +1,225 @@
+/*
+* 	Owl Carousel Owl Demo Theme 
+*	v1.3.2
+*/
+
+.owl-carousel-wrapper {
+	position: relative;
+}
+.owl-theme .owl-controls{
+	text-align: center;
+}
+.owl-theme .owl-item .project-item {
+	margin: 0 15px;
+}
+
+
+/* Styling Next and Prev buttons */
+
+.owl-theme .owl-controls .owl-buttons div{
+	color: #FFF;
+	display: none; /* hide for mobile */
+	font-size: 14px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	position: absolute;
+	top: 50%;
+	margin-top: -25px;
+	z-index: 1;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-transition: all 200ms ease-in-out;
+	-moz-transition: all 200ms ease-in-out;
+	-ms-transition: all 200ms ease-in-out;
+	-o-transition: all 200ms ease-in-out;
+	transition: all 200ms ease-in-out;
+}
+.owl-theme .owl-controls .owl-buttons div:before {
+	/*position: absolute;
+	top: -4px;
+	right: -4px;
+	bottom: -4px;
+	left: -4px;
+	z-index: 2;
+	border-radius: 50%;
+	background: rgba(255,255,255,.1);
+	content:"";
+	-webkit-transition: all 200ms ease-in-out;
+	-moz-transition: all 200ms ease-in-out;
+	-ms-transition: all 200ms ease-in-out;
+	-o-transition: all 200ms ease-in-out;
+	transition: all 200ms ease-in-out;*/
+}
+.owl-theme .owl-controls .owl-buttons div:after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 2;
+	display: block;
+	background: rgba(0,0,0,.4);
+	content:"";
+	-webkit-transition: all 200ms ease-in-out;
+	-moz-transition: all 200ms ease-in-out;
+	-ms-transition: all 200ms ease-in-out;
+	-o-transition: all 200ms ease-in-out;
+	transition: all 200ms ease-in-out;
+}
+.owl-theme .owl-controls .owl-buttons div i {
+	position: relative;
+	display: inline-block;
+	z-index: 3;
+}
+.owl-theme .owl-controls .owl-buttons .owl-prev {
+	left: 10px;
+}
+	.owl-theme .owl-controls .owl-buttons .owl-prev:after {
+		
+	}
+.owl-theme .owl-controls .owl-buttons .owl-next {
+	right: 10px;
+	 
+}
+	.owl-theme .owl-controls .owl-buttons .owl-next:after {
+		
+	}
+
+@media (min-width: 768px) {
+	.owl-theme .owl-controls .owl-buttons div {
+		display: block;
+	}
+}
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+	color: #fff;
+	background: #3b363a;
+}
+	.owl-theme:hover .owl-controls .owl-buttons div{
+		opacity: 1;
+	}
+	.owl-theme .owl-controls.clickable .owl-buttons div:hover:before {
+		
+	}
+	.owl-theme .owl-controls.clickable .owl-buttons div:hover:after {
+		
+	}
+
+/* Styling Pagination*/
+.owl-theme .owl-pagination {
+	position: absolute;
+	right: 16px;
+	bottom: 20px;
+	text-align: right;
+
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	cursor: default;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.owl-theme .owl-pagination .owl-page {
+	position: relative;
+	display: inline-block;
+	margin: 0 8px;
+	width: 12px;
+	height: 12px;
+	cursor: pointer;
+}
+
+.owl-theme .owl-pagination .owl-page span {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	outline: none;
+	border-radius: 50%;
+	background-color: #fff;
+	text-indent: -999em; /* make the text accessible to screen readers */
+	cursor: pointer;
+	position: absolute;
+	border: 0 solid transparent;
+}
+
+.owl-theme .owl-pagination .owl-page span:focus {
+	outline: none;
+}
+
+/* Pagination Effects */
+
+.owl-theme .owl-pagination .owl-page span {
+	-webkit-transition: -webkit-transform 0.3s ease, border 0.3s ease;
+	transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.owl-theme .owl-pagination .owl-page span:hover,
+.owl-theme .owl-pagination .owl-page span:focus {
+	
+}
+
+.owl-theme .owl-pagination .owl-page.active span {
+	
+}
+
+
+
+/* If PaginationNumbers is true */
+
+.owl-theme .owl-controls .owl-page span.owl-numbers{
+	height: auto;
+	width: auto;
+	color: #FFF;
+	padding: 2px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+/* preloading images */
+.owl-item.loading{
+	min-height: 150px;
+	background: url(AjaxLoader.gif) no-repeat center center
+}
+
+/* prev/next */
+.prev-next-holder {
+	position: relative;
+	margin-top: -40px;
+	padding-bottom: 32px;
+}
+	.prev-btn,
+	.next-btn {
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		line-height: 21px;
+		border-radius: 4px;
+		background: #a6ce39;
+		border: 1px solid #fff;
+		text-align: center;
+		font-size: 14px;
+		color: #fff;
+		margin-left: 3px;
+		-webkit-transition: all 200ms ease-in-out;
+		-moz-transition: all 200ms ease-in-out;
+		-ms-transition: all 200ms ease-in-out;
+		-o-transition: all 200ms ease-in-out;
+		transition: all 200ms ease-in-out;
+	}
+	.prev-btn:hover,
+	.next-btn:hover {
+		text-decoration: none;
+		background: #3b363a;
+		border-color: #3b363a;
+		cursor: pointer;
+		color: #fff;
+	}

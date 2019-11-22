@@ -1,0 +1,20 @@
+{% extends 'master.html'  %}
+{% block 'title' %} Home Page {% endblock %}
+
+  {% block 'content' %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-4">
+                <form method="post" action="{% url 'create_employee' %}" enctype="multipart/form-data">
+                    {{form}}
+                    {% csrf_token %}
+                    <hr/>
+                    <button style="float:right;" type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+  {% endblock %}

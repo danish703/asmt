@@ -1,0 +1,50 @@
+{% extends 'master.html'  %}
+{% block 'title' %} Employee Dashboard {% endblock %}
+
+
+{% block 'content' %}
+  <div class="container">
+       <div class="col-md-4">
+            <div class="panel panel-primary" style="padding:10px;">
+                <img src="{{MEDIA_URL}}{{emp.profile_img.url}}" style="width:250px;height:auto;">
+
+                <h4>{{emp.fullname}}</h4>
+                <a href="#" style="float:right;" data-toggle="modal" data-target="#editprofile"><i class="fa fa-pencil"></i> </a>
+                <hr/>
+                <i class="fa fa-phone"></i>&nbsp;{{emp.contact_no}}<br/>
+                <i class="fa fa-globe"></i>&nbsp;{{emp.website}}<br/>
+                <i class="fa fa-map-marker"></i>&nbsp;{{emp.address}}<br/>
+                <i class="fa fa-university"></i>&nbsp;{{emp.qualification}}
+            </div>
+       </div>
+      <div class="col-md-8">
+
+      </div>
+  </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <form method="post">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+      </div>
+      <div class="modal-body">
+        {{eform}}
+          {% csrf_token %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+     </form>
+    </div>
+  </div>
+</div>
+
+
+  {% endblock %}
