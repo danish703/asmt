@@ -20,3 +20,9 @@ class EmployeEditForm(forms.ModelForm):
     class Meta:
         model=Employee
         exclude = ['user','profile_img']
+
+
+class EmployeImageEditForm(forms.ModelForm):
+    class Meta:
+        model=Employee
+        fields = ['profile_img']
