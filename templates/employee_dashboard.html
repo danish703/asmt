@@ -17,9 +17,28 @@
                 <i class="fa fa-map-marker"></i>&nbsp;{{emp.address}}<br/>
                 <i class="fa fa-university"></i>&nbsp;{{emp.qualification}}
             </div>
+
+           <div class="panel panel-primary">
+               <a href="#" style="float:right;" data-target="#addskill" data-toggle="modal"><i class="fa fa-plus"></i> </a>
+               <ul>
+                   {% for s in skill %}
+                        <li>{{s.title}}</li>
+                   {% endfor %}
+               </ul>
+           </div>
        </div>
       <div class="col-md-8">
-
+            <div class="panel panel-primary" style="padding:10px;">
+                <a href="#" data-toggle="modal" data-target="#addexp"><i class="fa fa-plus" style="float:right;"></i></a>
+                <h3>Experiences</h3>
+                {% for e in exp %}
+                <div class="panel panel-primary" style="padding:10px;">
+                    <h5>{{e.company_name}}</h5>
+                    <hr/>
+                    <span>Designation: {{e.designation}}</span> &nbsp;| <span>Duration: {{e.duration}}</span>
+                </div>
+                {% endfor %}
+            </div>
       </div>
   </div>
 
@@ -69,5 +88,48 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="addexp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <form method="post" enctype="multipart/form-data">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addexpe">Add Experience</h4>
+      </div>
+      <div class="modal-body">
+          {{expform}}
+          {% csrf_token %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+     </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addskill" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <form method="post" enctype="multipart/form-data">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addsk">Add Skill</h4>
+      </div>
+      <div class="modal-body">
+          {{skillform}}
+          {% csrf_token %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+     </form>
+    </div>
+  </div>
+</div>
 
   {% endblock %}

@@ -22,7 +22,7 @@ class Skill(models.Model):
     employee = models.ForeignKey(Employee,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.employee
+        return self.title
 
     class Meta:
         db_table ='skill'
@@ -36,7 +36,7 @@ class Experience(models.Model):
     employee = models.ForeignKey(Employee,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.employee
+        return self.company_name
 
     class Meta:
         db_table = 'experience'

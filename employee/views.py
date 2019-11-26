@@ -1,11 +1,27 @@
 from django.shortcuts import render,redirect
-from .forms import EmployeForm,EmployeEditForm,EmployeImageEditForm
-from .models import Employee
+from .forms import EmployeForm,EmployeEditForm,EmployeImageEditForm,ExperineceForm,SkillForm
+from .models import Employee,Experience,Skill
 # Create your views here.
 def dashbaord(request):
     e = Employee.objects.get(user_id=request.user.id)
     x = EmployeEditForm(request.POST or None,instance=e)
     iform = EmployeImageEditForm(request.POST or None,request.FILES or None,instance=e)
+    exp = ExperineceForm(request.POST or None)
+    experinces = Experience.objects.filter(employee_id = getCurrentlyLogInEmployeeId(request.user.id))
+    skillform = SkillForm(request.POST or None)
+    skill = Skill.objects.filter(employee_id = getCurrentlyLogInEmployeeId(request.user.id))
+    if skillform.is_valid():
+        data = skillform.save(commit=False)
+        data.employee_id = getCurrentlyLogInEmployeeId(request.user.id)
+        data.save()
+        return redirect('employee_dashboard')
+
+    if exp.is_valid():
+        data = exp.save(commit=False)
+        data.employee_id =getCurrentlyLogInEmployeeId(request.user.id)
+        data.save()
+        return redirect('employee_dashboard')
+
     if x.is_valid():
         x.save()
         return redirect('employee_dashboard')
@@ -14,10 +30,15 @@ def dashbaord(request):
         iform.save()
         return redirect('employee_dashboard')
 
+
     context = {
         'emp':e,
         'eform':x,
-        'iform':iform
+        'iform':iform,
+        'expform':exp,
+        'exp':experinces,
+        'skillform':skillform,
+        'skill':skill,
     }
     return render(request,'employee_dashboard.html',context)
 
