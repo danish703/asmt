@@ -1,0 +1,20 @@
+{% extends 'master.html'  %}
+{% block 'title' %} Employee Dashboard {% endblock %}
+
+
+{% block 'content' %}
+  <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+        <h3>Edit</h3>
+          <form method="post">
+              {% csrf_token %}
+              {{form}}
+                <hr/>
+              <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+      </div>
+  </div>
+
+
+
+  {% endblock %}

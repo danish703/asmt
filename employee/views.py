@@ -62,3 +62,20 @@ def getCurrentlyLogInEmployeeId(id):
     e = Employee.objects.get(user_id=id)
     return e.id
 
+
+
+def exp_edit(request,id):
+    exp = Experience.objects.get(pk=id)
+    form = ExperineceForm(request.POST or None,instance=exp)
+    if form.is_valid():
+        form.save()
+        return redirect('employee_dashboard')
+    context = {
+        'form':form
+    }
+    return render(request,'edit_exp.html',context)
+
+def del_exp(request,id):
+    exp = Experience.objects.get(pk=id)
+    exp.delete()
+    return redirect('employee_dashboard')

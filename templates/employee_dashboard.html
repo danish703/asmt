@@ -36,6 +36,8 @@
                     <h5>{{e.company_name}}</h5>
                     <hr/>
                     <span>Designation: {{e.designation}}</span> &nbsp;| <span>Duration: {{e.duration}}</span>
+                    <hr/>
+                    <a href="{% url 'exp_del' e.id %}"><i class="fa fa-trash"></i> </a> | <a href="{% url 'exp_edit' e.id %}"><i class="fa fa-pencil"></i> </a>
                 </div>
                 {% endfor %}
             </div>
